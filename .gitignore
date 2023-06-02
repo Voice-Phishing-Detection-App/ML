@@ -1,0 +1,4 @@
+.cache/
+./kobert/__pycache__
+./kobert/utils/__pycache__
+./KoBERT/__pycache__
