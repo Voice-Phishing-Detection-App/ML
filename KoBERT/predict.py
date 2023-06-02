@@ -30,7 +30,7 @@ def load_dataset(predict_sentence):
     return DataLoader(another_test, batch_size = 32, num_workers = 5) # torch 형식 변환
 
 def inference(predict_sentence): # input = 보이스피싱 탐지하고자 하는 sentence
-    print("------ predict ------")
+    print("※ KoBERT 추론 시작 ※")
 
     test_dataloader = load_dataset(predict_sentence)
     
@@ -55,7 +55,7 @@ def inference(predict_sentence): # input = 보이스피싱 탐지하고자 하�
                 test_eval.append("보이스피싱 전화")
                 result = True
 
-        print(">> 입력하신 내용은 '" + test_eval[0] + "' 입니다.")
+        print("▶ 입력하신 내용은 '" + test_eval[0] + "' 입니다.")
         return result
 
 def run(text):
