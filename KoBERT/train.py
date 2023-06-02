@@ -31,17 +31,17 @@ from sklearn.metrics import roc_auc_score
 from sklearn.metrics import confusion_matrix
 # from keras.models import Sequential
 
-
+import os
 from time import time
 from timeit import default_timer as timer
 
 def run():
     print("---------- train -----------")
+    print(os.getcwd())
     device = torch.device("cuda:0") if torch.cuda.is_available() else torch.device("cpu")
 
-    # import the dataset
     # 일반 음성: 0     보이스피싱 음성: 1
-    dataset = pd.read_csv('../static/csv/KoBERT_dataset_v2.5.csv').sample(frac=1.0)
+    dataset = pd.read_csv('static/csv/KoBERT_dataset_v2.5.csv').sample(frac=1.0)
     dataset.sample(n=15)
     dataset_tsv = []
     for text, label in zip(dataset['Transcript'], dataset['Label']):
@@ -58,7 +58,7 @@ def run():
     print(f"Numbers of train instances by class: {len(train_set)}")
     print(f"Numbers of val instances by class: {len(val_set)}")
 
-    net = BERTClassifier().cuda()
+    #net = BERTClassifier().cuda()
 
     # 파라미터 설정
     max_len = 64 # The maximum sequence length that this model might ever be used with. 
@@ -128,34 +128,8 @@ def run():
             if batch_id % log_interval == 0:
                 print("epoch {} batch id {} loss {} train acc {}".format(e+1, batch_id+1, loss.data.cpu().numpy(), train_acc / (batch_id+1)))
         print("epoch {} train acc {}".format(e+1, train_acc / (batch_id+1)))
-        
-        preds = []
-        labels = []
-        # evaluation of the model train on the test set
-        model.eval()
-        for batch_id, (token_ids, valid_length, segment_ids, label) in tqdm(enumerate(val_dataloader), total=len(val_dataloader)):
-            token_ids = token_ids.long().to(device)
-            segment_ids = segment_ids.long().to(device)
-            valid_length= valid_length
-            label = label.long().to(device)
-            labe2 = label.cpu()
-            out = model(token_ids, valid_length, segment_ids)
-            test_acc += calc_accuracy(out, label)
-            
-            pred = out.detach()
-            pred = F.softmax(pred)
-            pred = pred[:, 1].cpu().numpy().tolist()
-            preds += pred
-            labels += label.cpu().numpy().tolist()
-            
-        preds = np.array(preds)
-        labels = np.array(labels)
-        metrics = get_metrics(preds, labels)
-        print("epoch {} test acc {}".format(e+1, test_acc / (batch_id+1)))
-        # print('ACCURACY 2 = ', accuracy_score(out, label))
-        print('Metrics: ', metrics)
 
-    torch.save(net.state_dict(), './model/train.pt')
+    torch.save(model.state_dict(), 'KoBERT/model/train.pt')
     run_time = time() - start_time
     run_time
 
