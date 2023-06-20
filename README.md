@@ -41,7 +41,10 @@
   해당 json 형식으로 스프링 서버에 응답
   
   ```json
-  { "phishing" : "false", "level" : "0" }
+  {
+     "phishing" : "false",
+     "level" : "0"
+  }
   ```
 
 
@@ -70,10 +73,14 @@
    > 나머지 : 3단계 [위험]
 
 3. 최종 분석결과 응답
+
    측정 결과를 해당 json 형식으로 스프링 서버에 응답하여
+   
    사용자에게 보이스피싱 위험도 단계 알림 서비스를 지원한다.
+   
    ```json
    { 
-     "phishing": "true", "level": 3
+     "phishing": "true",
+      "level": 3
    }
    ```
