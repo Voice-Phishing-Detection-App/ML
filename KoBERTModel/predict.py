@@ -17,7 +17,7 @@ def load_model():
     global model
     model = BERTClassifier(bertmodel,  dr_rate=0.4).to(device)
 
-    model.load_state_dict(torch.load('KoBERT/model/train.pt'))
+    model.load_state_dict(torch.load('KoBERTModel/model/train.pt'))
     model.eval() 
 
 def load_dataset(predict_sentence):
