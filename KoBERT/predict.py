@@ -5,8 +5,8 @@ import numpy as np
 from torch.utils.data import Dataset, DataLoader
 from KoBERT.BERTDataset import BERTDataset
 from KoBERT.BERTClassifier import BERTClassifier
-from kobert.utils.utils import get_tokenizer
-from kobert.pytorch_kobert import get_pytorch_kobert_model
+from SKTkobert.utils.utils import get_tokenizer
+from SKTkobert.pytorch_kobert import get_pytorch_kobert_model
 
 
 model = None
