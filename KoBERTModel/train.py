@@ -1,10 +1,10 @@
-from KoBERT.BERTClassifier import BERTClassifier
-from KoBERT.BERTDataset import BERTDataset
+from KoBERTModel.BERTClassifier import BERTClassifier
+from KoBERTModel.BERTDataset import BERTDataset
 
 ## importing KoBERT functions
 
-from SKTkobert.utils.utils import get_tokenizer
-from SKTkobert.pytorch_kobert import get_pytorch_kobert_model
+from kobert.utils.utils import get_tokenizer
+from kobert.pytorch_kobert import get_pytorch_kobert_model
 
 from transformers import AdamW
 from transformers.optimization import get_cosine_schedule_with_warmup

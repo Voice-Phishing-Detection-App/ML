@@ -2,8 +2,8 @@ from flask import Flask, jsonify, request, render_template, redirect, url_for
 from werkzeug.utils import secure_filename
 from flask_cors import CORS
 import os, warnings
-from KoBERT import train
-from KoBERT import predict
+from KoBERTModel import train
+from KoBERTModel import predict
 from wordDetect import classification
 
 app = Flask(__name__)
