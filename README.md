@@ -6,7 +6,9 @@
 
 - 보이스 피싱 텍스트: [금융감독원 - 보이스피싱 체험관](https://www.fss.or.kr/fss/bbs/B0000203/list.do?menuNo=200686)
 
-- 일반 대화 텍스트: [AI Hub - 감정분류를 위한 대화 음성 데이터셋](https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&dataSetSn=263)
+- 일반 대화 텍스트
+  [AI Hub - 감정분류를 위한 대화 음성 데이터셋](https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&dataSetSn=263)
+  [AI Hub - 텍스트 윤리검증 데이터](https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=558)
 
 - `일반대화: 0`, `보이스피싱: 1` 으로 라벨링
 
