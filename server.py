@@ -10,6 +10,9 @@ app = Flask(__name__)
 CORS(app)
 warnings.filterwarnings(action='ignore')
 
+@app.route("/", methods=['POST', 'GET'])
+def main():
+    return render_template('main.html')
 
 @app.route("/train", methods=['POST', 'GET'])
 def trainData():
