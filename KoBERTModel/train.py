@@ -1,7 +1,8 @@
-from KoBERT.BERTClassifier import BERTClassifier
-from KoBERT.BERTDataset import BERTDataset
+from KoBERTModel.BERTClassifier import BERTClassifier
+from KoBERTModel.BERTDataset import BERTDataset
 
 ## importing KoBERT functions
+
 from kobert.utils.utils import get_tokenizer
 from kobert.pytorch_kobert import get_pytorch_kobert_model
 
@@ -129,7 +130,7 @@ def run():
                 print("epoch {} batch id {} loss {} train acc {}".format(e+1, batch_id+1, loss.data.cpu().numpy(), train_acc / (batch_id+1)))
         print("epoch {} train acc {}".format(e+1, train_acc / (batch_id+1)))
 
-    torch.save(model.state_dict(), 'KoBERT/model/train.pt')
+    torch.save(model.state_dict(), 'KoBERTModel/model/train.pt')
     run_time = time() - start_time
     run_time
 

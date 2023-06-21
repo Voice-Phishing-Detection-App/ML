@@ -57,8 +57,8 @@ class voice:
         self.detection() # 분석 함수 호출
         global safe_type
         
-        if self.cnt <=20: safe_type = 0 # 0단계 : 안전
-        elif self.cnt <= 40: safe_type = 1 # 1단계 : 의심
+        #if self.cnt <= 20: safe_type = 0 # 0단계 : 안전
+        if self.cnt <= 30: safe_type = 1 # 1단계 : 의심
         elif self.cnt <= 60: safe_type = 2 # 2단계 : 경고
         else: safe_type = 3 # 3단계 : 위험
         
